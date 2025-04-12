@@ -40,7 +40,7 @@ export default function Header() {
                     {/* <div className="text-2xl font-bold"> </div> */}
                     <div className="cursor-pointer w-[120px] h-auto" onClick={() => window.location.href = '/'}>
                         <img
-                            src="/logo.png"
+                            src="/logo1.png"
                             alt="MyRasa Logo"
                             className="w-full h-auto object-contain"
                         />
@@ -48,6 +48,7 @@ export default function Header() {
                     <nav className="space-x-6 font-spirits-soft  items-up text-lg font-medium">
                         <a href="/" className="hover:text-gray-600">Home</a>
                         <a href="/perfumes" className="hover:text-gray-600">Shop</a>
+
                         <a href="/offers" className="hover:text-gray-600">Offers</a>
                         <a href="/contact" className="hover:text-gray-600">Contact</a>
                     </nav>

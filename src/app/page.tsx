@@ -5,6 +5,8 @@ import { useState } from "react";
 import { Eye } from 'lucide-react';
 import Link from 'next/link';
 
+
+
 interface Fragrance {
   id: number;
   name: string;
@@ -51,10 +53,10 @@ export default function Home() {
             Unleash luxury fragrances that speak your soul.
           </p>
           <div className="flex gap-4">
-            <a href="#shop" className="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
+            <a href="/perfumes" className="bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
               Shop Now
             </a>
-            <a href="#collection" className="border border-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition">
+            <a href="/perfumes" className="border border-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition">
               View Collection
             </a>
           </div>
@@ -62,7 +64,7 @@ export default function Home() {
       </div>
 
       {/* Summer Fragrance Collection */}
-      <section id="collection" className="bg-white py-20 px-6 sm:px-12">
+      <section id="collection" className="shop_dd bg-white py-20 px-6 sm:px-12">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl sm:text-5xl font-light tracking-wide uppercase text-center mb-10 font-spirits-soft">
             Summer Fragrance Collection
@@ -282,6 +284,11 @@ export default function Home() {
 
 
       </section>
+
+
+
+
+
 
 
       {/* CATEGORY BANNER GRID */}

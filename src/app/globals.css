@@ -23,8 +23,21 @@
   font-family: spirits-soft;
 }
 
+
+.shop_popup {
+  padding: 30px;
+  border: 2px solid black;
+  color: black;
+  font-family: spirits-soft;
+}
+
 .header_bg {
   padding-bottom: 50px;
+}
+
+.shop_dd {
+  color: black;
+  font-family: spirits-soft;
 }
 
 .bg_shop_header {
