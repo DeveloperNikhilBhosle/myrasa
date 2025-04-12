@@ -14,13 +14,73 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    /* --background: #0a0a0a; */
     --foreground: #ededed;
   }
+}
+
+.font-spirits-soft {
+  font-family: spirits-soft;
+}
+
+.header_bg {
+  padding-bottom: 50px;
+}
+
+.bg_shop_header {
+  background-image: url("/Parfumebg.png");
+  /* ✅ Wrap with `url(...)` */
+  background-size: cover;
+  /* Optional but usually needed */
+  background-position: center;
+  /* Optional for centering */
+  padding-bottom: 100px;
+  /* ✅ Remove quotes around value */
+
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 100px;
+  text-align: center;
+  /* ✅ Center text */
+  font-size: 50px;
+  /* ✅ Set font size */
+  color: white;
+  /* Optional: set text color */
+  font-family: spirits-soft;
+  align-items: center;
+}
+
+
+.padding10 {
+  padding: 50px;
+}
+
+.items-center-menus {
+  padding-top: 7px;
+  color: black;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: font-spirit;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out;
+}
+
+.media-grid__item {
+  grid-column: span var(--media-grid-item-column-span, 6);
+  grid-row: span var(--media-grid-item-row-span, 2);
 }
