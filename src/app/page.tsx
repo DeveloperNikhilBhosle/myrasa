@@ -1,10 +1,9 @@
 'use client';
 
 import Image from "next/image";
-import { useState } from "react";
 import { Eye } from 'lucide-react';
 import Link from 'next/link';
-
+import { useEffect, useRef, useState } from 'react';
 
 
 interface Fragrance {
@@ -26,6 +25,25 @@ const fragrances: Fragrance[] = [...Array(10)].map((_, index) => ({
 
 export default function Home() {
   const [selectedFragrance, setSelectedFragrance] = useState<Fragrance | null>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (imageRef.current) {
+        const rect = imageRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const offset = (windowHeight - rect.top) / windowHeight;
+        const clampedOffset = Math.max(0.9, Math.min(1.1, 1 + offset * 0.05)); // control zoom range
+        setScale(clampedOffset);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // trigger on load
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
@@ -285,6 +303,49 @@ export default function Home() {
 
       </section>
 
+
+      <section className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-8">
+          {/* Image Section */}
+          <div className="flex-1 overflow-hidden">
+            <img
+              ref={imageRef}
+              src="/myrasa-store.webp"
+              alt="Inside MyRasa Store"
+              style={{ transform: `scale(${scale})`, transition: 'transform 0.3s ease' }}
+              className="rounded-xl shadow-lg w-full h-auto object-cover"
+            />
+          </div>
+
+          {/* Text Section */}
+          <div className="flex-1 shop_dd text-center lg:text-left">
+            <h2 className="text-4xl text-black-600 font-bold leading-tight">
+              <span className="text-orange-600">Why We Do, </span> What We Do
+            </h2>
+            <p className="mt-4 text-lg text-gray-700">
+              At <strong>MyRasa</strong>, we believe that fragrance is not just a scent, it’s an experience.
+              We craft our perfumes with a deep understanding of emotion and individuality—because no two people are alike.
+              Our mission is to bring high-quality, long-lasting fragrances that resonate with your unique identity.
+              With expert-curated blends and exceptional oil concentration, every bottle of MyRasa is designed to make a lasting impression.
+            </p>
+            <a
+              href="/contact"
+              className="inline-flex items-center mt-6 px-5 py-2 bg-orange-600 text-white rounded-lg font-semibold shadow hover:bg-grey-700 transition"
+            >
+              CONTACT US
+              <svg
+                className="ml-2 w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
 
 
 
